@@ -43,7 +43,7 @@ var Request = {
 				var $ = window.$;
 				var links = [];
 
-				$('body a[href^="http://"]').each(function(index, el) {
+				$('body a[href^="http"]').each(function(index, el) {
 					links.push($(el).attr('href'));
 				});
 
