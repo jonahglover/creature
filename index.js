@@ -5,8 +5,6 @@ var express  = require('express');
 //
 var server = express();
 
-console.log("created express");
-
 creature().start().then(function (instance) {
 	// mount creature on a subdir
 	server.use(instance.config.paths.subdir, instance.app);
