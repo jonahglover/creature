@@ -12,4 +12,5 @@ requestFilter.addRule("popular", function(url){
 	}
 });
 
-requestFilter.filter(urls);
+console.log(requestFilter.filter(urls));
+
