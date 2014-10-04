@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "creature",
   "dependencies": {
     "bluebird": "*",
@@ -8,4 +9,15 @@
     "request": "*",
     "validator": "^3.19.0"
   }
+=======
+	"name" : "creature",
+	"dependencies" : {
+		"express"  : "4.9.5",
+		"bluebird"  : "*",
+		"generic-pool": "*",
+		"request"    : "*",
+		"mongodb"   : "*",
+		"mongoose" : "*"
+	}
+>>>>>>> 4d4ccc6eeb62239224abb03ed6dac13c165aaaee
 }
