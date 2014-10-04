@@ -3,6 +3,7 @@
 	"dependencies" : {
 		"express"  : "4.9.5",
 		"bluebird"  : "*",
-		"generic-pool": "*"
+		"generic-pool": "*",
+		"request"    : "*"
 	}
 }
