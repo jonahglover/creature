@@ -4,6 +4,8 @@
 		"express"  : "4.9.5",
 		"bluebird"  : "*",
 		"generic-pool": "*",
-		"request"    : "*"
+		"request"    : "*",
+		"mongodb"   : "*",
+		"mongoose" : "*"
 	}
 }

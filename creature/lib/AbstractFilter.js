@@ -6,13 +6,18 @@ var filter = {
 		this.rules[name] = rule;
 	},
 	filter : function(urls){
+		var filteredUrls = [];
 		rules = this.rules;
-		filteredUrls = urls;
-		for(i = filteredUrls.length-1; i>=0; i--){
+		for(i = urls.length-1; i>=0; i--){
+			var invalid = false;
 			for( rule in rules ){
-				if(rules[rule](filteredUrls[i])){
-					console.log("success");
+				if(!rules[rule](urls[i])){
+					invalid = true;
+					break;
 				}	
+				if(!invalid){
+					filteredUrls.push(urls[i]);
+				}
 			}	
 		}
 		return filteredUrls;
