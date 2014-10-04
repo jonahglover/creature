@@ -1,6 +1,7 @@
 var http    = require('http');
 var Pool    = require('generic-pool').Pool
-var request = require('request');
+
+var Request = require('./request');
 
 
 var creature = {
@@ -19,10 +20,16 @@ var creature = {
 			}
 		});
 	},
-	request : function(url){
+
+	request: function(url) {
+		Request.send(url, function(links) {
+			// TODO: Use the links...
+		});
 	},
+
 	seed : function(){
 	seedUrl = this.seedUrl
 	}
 };
+
 module.exports = creature;

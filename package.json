@@ -1,9 +1,11 @@
 {
-	"name" : "creature",
-	"dependencies" : {
-		"express"  : "4.9.5",
-		"bluebird"  : "*",
-		"generic-pool": "*",
-		"request"    : "*"
-	}
+  "name": "creature",
+  "dependencies": {
+    "bluebird": "*",
+    "express": "4.9.5",
+    "generic-pool": "*",
+    "jsdom": "^1.0.1",
+    "request": "*",
+    "validator": "^3.19.0"
+  }
 }
