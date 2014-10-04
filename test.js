@@ -1,3 +1,3 @@
-var creature = require('./creature');
+var creature = require('./creature').Creature;
 
-creature.start("http://www.google.com");
+creature({seed:"http://www.google.com"});
