@@ -6,6 +6,7 @@
     "generic-pool": "*",
     "jsdom": "^1.0.1",
     "request": "*",
+		"validator": "^3.19.0",
 		"generic-pool": "*",
 		"mongodb"   : "*",
 		"mongoose" : "*"
