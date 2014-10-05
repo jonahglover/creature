@@ -1,43 +1,30 @@
 var http    = require('http');
-var Pool    = require('generic-pool').Pool
 var Request = require('./request');
 
 exports.Creature = function(options){
 // init queue and pool
-	var pool = Pool({
-		name    : 'Creature',
-		max     : 100,
-		create  : function(callback) {
-			callback(1);
-		},
-		destroy : function(client) {
-		// not relevant until clients are connecting to db
-			console.log("destroying worker");
-		},
-		log : true
-	});
-
+	var self = this;
+	var live = true;
 	var queue = [];
-
+	self.pool = {
+		numClients: 0,
+		maxClients: 10
+	}
 	var request = function(url) {
-		pool.acquire(function(err,client){		
+		if(url){
+			self.pool.numClients = self.pool.numClients+1;
 			Request.send(url, function(links) {
-     			pool.release(client);
-				// TODO validate here 34    
+				// TODO validate here 34  
+				self.pool.numClients = self.pool.numClients-1;
+				console.log(links);
 				for(i = 0; i<links.length; i++){
 					queue.push(links[i]);
 				}
-				console.log(queue);
-				if(queue.length>0){
-					request(queue.pop());
-				}
-			});
-		});
+			 	for(c = 0; c<self.pool.maxClients - self.pool.numClients; c++){
+			 		request(queue.shift());
+			 	}				
+			});	
+		}
 	}
-
-	var seed = function(seedUrl){
-		request(seedUrl);
-	}
-
-	seed(options.seed)
+	request(options.seed)
 };
